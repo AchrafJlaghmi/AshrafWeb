@@ -168,9 +168,8 @@ const Hero3D = () => {
           filter: "drop-shadow(0 0 25px rgba(255,255,255,0.2))",
         }}
       >
-        {/* FRONT */}
-        <div style={{ ...faceStyle("translateZ(110px)", true), display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "2.5rem", fontWeight: 900, letterSpacing: "-0.05em", textShadow: "0 0 20px rgba(255,255,255,0.8)" }}>AW</span>
+        <div style={{ ...faceStyle("translateZ(110px)", true), display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+          <Image src="/ashraf.jpg" alt="Ashraf" fill className="object-cover opacity-90 hover:opacity-100 transition-opacity" />
         </div>
         {/* BACK */}
         <div style={faceStyle("rotateY(180deg) translateZ(110px)")} />
