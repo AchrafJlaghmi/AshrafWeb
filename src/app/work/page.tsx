@@ -84,9 +84,7 @@ export default function WorkPage() {
             <Link href="/" className="hover:text-white transition-colors">{t.nav.work}</Link>
             <LanguageSwitcher />
             <motion.a
-              href="https://safe-resolution-d93.notion.site/3565dcc00cf280429eb9d84fe308784c?pvs=105"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255,255,255,0.4)" }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-black px-6 py-2 rounded-full font-bold"
@@ -97,9 +95,7 @@ export default function WorkPage() {
           <div className="md:hidden flex items-center gap-4">
             <LanguageSwitcher />
             <motion.a
-              href="https://safe-resolution-d93.notion.site/3565dcc00cf280429eb9d84fe308784c?pvs=105"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold"
             >
               {t.nav.contact}
@@ -243,9 +239,7 @@ export default function WorkPage() {
           </p>
           <div className="flex flex-col gap-8 items-center">
             <motion.a
-              href="https://safe-resolution-d93.notion.site/3565dcc00cf280429eb9d84fe308784c?pvs=105"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,255,255,0.3)" }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-black px-10 py-4 rounded-full font-black text-lg mb-8"

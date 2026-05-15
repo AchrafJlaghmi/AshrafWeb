@@ -79,9 +79,7 @@ const Navbar = () => {
           <a href="#work" className="hover:text-white transition-colors">{t.nav.work}</a>
           <LanguageSwitcher />
           <motion.a 
-            href="https://safe-resolution-d93.notion.site/3565dcc00cf280429eb9d84fe308784c?pvs=105"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 255, 255, 0.4)" }}
             whileTap={{ scale: 0.95 }}
             className="bg-white text-black px-6 py-2 rounded-full font-bold"
@@ -92,7 +90,7 @@ const Navbar = () => {
         
         <div className="md:hidden flex items-center gap-4">
           <LanguageSwitcher />
-          <a href="https://safe-resolution-d93.notion.site/3565dcc00cf280429eb9d84fe308784c?pvs=105" target="_blank" rel="noopener noreferrer" className="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold">{t.nav.contact}</a>
+          <a href="/contact" className="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold">{t.nav.contact}</a>
         </div>
       </div>
     </nav>
@@ -293,9 +291,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <motion.a
-              href="https://safe-resolution-d93.notion.site/3565dcc00cf280429eb9d84fe308784c?pvs=105"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,255,255,0.35)" }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-black px-8 py-4 rounded-full font-black text-base flex items-center justify-center gap-2"
@@ -510,9 +506,7 @@ const Contact = () => {
         
         <div className="flex flex-col gap-8 items-center">
           <motion.a
-            href="https://safe-resolution-d93.notion.site/3565dcc00cf280429eb9d84fe308784c?pvs=105"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,255,255,0.3)" }}
             whileTap={{ scale: 0.95 }}
             className="bg-white text-black px-10 py-4 rounded-full font-black text-lg mb-8"
