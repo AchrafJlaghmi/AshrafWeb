@@ -17,14 +17,14 @@ export const metadata: Metadata = {
   description: "Premium, high-performance landing pages and portfolios for businesses and creators globally and in Morocco. Zero complications, fast delivery.",
   keywords: ["web design morocco", "landing pages morocco", "freelance developer morocco", "high speed websites", "premium portfolio", "ashraf web"],
   authors: [{ name: "Ashraf" }],
-  metadataBase: new URL("https://ashrafweb.tech"),
+  metadataBase: new URL("https://ashrafweb.me"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Ashraf Web | Premium Web Design",
     description: "Build your high-speed digital storefront. Professional landing pages delivered fast.",
-    url: "https://ashrafweb.tech",
+    url: "https://ashrafweb.me",
     siteName: "Ashraf Web",
     locale: "en_US",
     type: "website",
@@ -50,6 +50,7 @@ export const metadata: Metadata = {
 };
 
 import { LanguageProvider } from "../context/LanguageContext";
+import { WhatsAppFAB } from "@/components/WhatsAppFAB";
 
 export default function RootLayout({
   children,
@@ -64,6 +65,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
           {children}
+          <WhatsAppFAB />
         </LanguageProvider>
       </body>
     </html>

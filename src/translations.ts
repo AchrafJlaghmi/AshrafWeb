@@ -66,37 +66,37 @@ export const translations = {
       barber: {
         type: "Barbershop",
         category: "Personal Brand",
-        desc: "A premium, dark-gold themed landing page for a luxury barber shop. Full booking flow, service showcase, and cinematic imagery.",
+        desc: "A digital storefront for an upscale barbershop, featuring an integrated booking system and a clean, elegant visual identity.",
       },
       lumina: {
         type: "Corporate Website",
         category: "Real Estate",
-        desc: "A minimalist editorial landing page for a high-end real estate firm. Light-mode aesthetic with serif typography and architectural photography.",
+        desc: "A refined corporate site for a real estate agency, designed with a focus on clear typography and structured property presentations.",
       },
       terra: {
         type: "Restaurant Website",
         category: "Hospitality",
-        desc: "A cinematic dark-mode site for a luxury Moroccan restaurant. Ember-red accents, stunning food photography, and immersive glassmorphism effects.",
+        desc: "A modern restaurant website combining seamless reservation functionality with a sophisticated dark-mode layout.",
       },
       atlas: {
         type: "Landing Page",
         category: "Restaurant",
-        desc: "High-energy landing page for a premium grill & woodfire restaurant. Bento-grid menu layout, cinematic hero, and bold typography.",
+        desc: "A vibrant landing page for a grill restaurant, built with a structured menu presentation and prominent call-to-action sections.",
       },
       apex: {
         type: "Brand Website",
         category: "Fitness",
-        desc: "A cinematic full-scale website for a premium fitness brand. Video hero, philosophy section, pricing plans, and subscription-focused CTAs.",
+        desc: "A comprehensive brand platform for a fitness studio, including membership tiers, philosophy overviews, and subscription management.",
       },
       cafe: {
         type: "Cafe Shop",
         category: "Hospitality",
-        desc: "A cozy, premium landing page for a modern cafe. Features a digital menu, warm aesthetic, and seamless reservation flow.",
+        desc: "An engaging online presence for a local cafe, integrating a digital menu and an intuitive table reservation system.",
       },
       nestly: {
         type: "Real Estate App",
         category: "Real Estate",
-        desc: "A warm minimalist property listing platform. Curated editorial aesthetic with entrance animations and a high-quality property showcase grid.",
+        desc: "A property listing interface with a focus on usability, streamlining the search and discovery experience for potential buyers.",
       },
     },
     footer: {
@@ -171,37 +171,37 @@ export const translations = {
       barber: {
         type: "Barbershop",
         category: "Marque Personnelle",
-        desc: "Une page de destination premium, thème noir et or pour un salon de coiffure de luxe. Flux de réservation complet et imagerie cinématique.",
+        desc: "Une vitrine digitale pour un salon de coiffure haut de gamme, intégrant un système de réservation fluide et une identité visuelle élégante.",
       },
       lumina: {
         type: "Site Corporatif",
         category: "Immobilier",
-        desc: "Une page de destination éditoriale minimaliste pour une agence immobilière haut de gamme. Esthétique claire avec typographie avec empattement.",
+        desc: "Un site institutionnel épuré pour une agence immobilière, conçu avec un accent sur la typographie et la présentation claire des biens.",
       },
       terra: {
         type: "Site Restaurant",
         category: "Hôtellerie",
-        desc: "Un site cinématique en mode sombre pour un restaurant marocain de luxe. Accents rouge braise et effets de glassmorphisme immersifs.",
+        desc: "Un site web moderne pour restaurant associant fonctionnalité de réservation et mise en page soignée en mode sombre.",
       },
       atlas: {
         type: "Landing Page",
         category: "Restaurant",
-        desc: "Page de destination haute énergie pour un grill premium. Mise en page du menu en grille bento, héros cinématique et typographie audacieuse.",
+        desc: "Une page de destination dynamique pour un restaurant grill, avec une présentation structurée du menu et des appels à l'action clairs.",
       },
       apex: {
         type: "Site de Marque",
         category: "Fitness",
-        desc: "Un site web complet cinématique pour une marque de fitness premium. Vidéo en héros, section philosophie et plans tarifaires.",
+        desc: "Une plateforme de marque complète pour un studio de fitness, incluant des niveaux d'abonnement et la gestion des membres.",
       },
       cafe: {
         type: "Café",
         category: "Hôtellerie",
-        desc: "Une page de destination chaleureuse et premium pour un café moderne. Comprend un menu numérique et un flux de réservation fluide.",
+        desc: "Une présence en ligne attrayante pour un café, avec menu numérique et système intuitif de réservation de table.",
       },
       nestly: {
         type: "App Immobilier",
         category: "Immobilier",
-        desc: "Une plateforme d'annonces immobilières minimaliste et chaleureuse. Esthétique éditoriale avec animations d'entrée et grille de présentation.",
+        desc: "Une interface d'annonces immobilières axée sur la convivialité, simplifiant la recherche pour les acheteurs potentiels.",
       },
     },
     footer: {
