@@ -383,7 +383,7 @@ const AboutStackedCards = () => {
   const card0State = activeIndex === 0 ? (isHovered ? frontHover : frontAnimate) : (isHovered ? backHover : backAnimate);
   const card1State = activeIndex === 1 ? (isHovered ? frontHover : frontAnimate) : (isHovered ? backHover : backAnimate);
 
-  const springTransition = { type: "spring", stiffness: 200, damping: 25 };
+  const springTransition = { type: "spring" as const, stiffness: 200, damping: 25 };
 
   return (
     <div className="relative w-full max-w-sm perspective-[1200px] flex items-center justify-center" style={{ aspectRatio: "4/5" }}>
@@ -506,7 +506,7 @@ const About = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
+    visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 20 } }
   };
 
   return (
