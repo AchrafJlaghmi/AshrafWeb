@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
 import { 
   Zap, 
   Layout, 
@@ -75,6 +75,7 @@ const Navbar = () => {
         </motion.div>
         
         <div className="hidden md:flex gap-8 items-center text-sm font-medium text-slate-400">
+          <a href="#about" className="hover:text-white transition-colors">{t.nav.about}</a>
           <a href="#services" className="hover:text-white transition-colors">{t.nav.services}</a>
           <a href="#work" className="hover:text-white transition-colors">{t.nav.work}</a>
           <LanguageSwitcher />
@@ -337,53 +338,260 @@ const Hero = () => {
 };
 
 
-const About = () => {
-  const { t } = useLanguage();
+const AboutStackedCards = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isHovered) {
+        setActiveIndex((prev) => (prev === 0 ? 1 : 0));
+      }
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mX = e.clientX - rect.left;
+    const mY = e.clientY - rect.top;
+    x.set(mX / width - 0.5);
+    y.set(mY / height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  const frontAnimate = { rotateZ: 0, x: 0, y: 0, scale: 1, zIndex: 20, z: 30 };
+  const frontHover = { rotateZ: -6, x: -60, y: 0, scale: 1.05, zIndex: 20, z: 50 };
+
+  const backAnimate = { rotateZ: 4, x: 15, y: 5, scale: 0.95, zIndex: 10, z: -20 };
+  const backHover = { rotateZ: 14, x: 140, y: -20, scale: 0.95, zIndex: 10, z: -30 };
+
+  const card0State = activeIndex === 0 ? (isHovered ? frontHover : frontAnimate) : (isHovered ? backHover : backAnimate);
+  const card1State = activeIndex === 1 ? (isHovered ? frontHover : frontAnimate) : (isHovered ? backHover : backAnimate);
+
+  const springTransition = { type: "spring", stiffness: 200, damping: 25 };
 
   return (
-    <section className="relative z-10 py-24 px-6 md:px-12 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div className="relative w-full max-w-sm perspective-[1200px] flex items-center justify-center" style={{ aspectRatio: "4/5" }}>
+      {/* Floating Elements */}
+      <motion.div 
+        animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }} 
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-10 -left-10 z-20 w-20 h-20 bg-blue-500/10 backdrop-blur-md rounded-2xl border border-blue-500/20 flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.3)]"
+        style={{ transform: "translateZ(80px)" }}
+      >
+        <Monitor className="w-10 h-10 text-blue-400" />
+      </motion.div>
+      
+      <motion.div 
+        animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }} 
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute -bottom-8 -right-8 z-20 w-24 h-24 bg-teal-500/10 backdrop-blur-md rounded-full border border-teal-500/20 flex items-center justify-center shadow-[0_0_30px_rgba(20,184,166,0.3)]"
+        style={{ transform: "translateZ(100px)" }}
+      >
+        <Layout className="w-12 h-12 text-teal-400" />
+      </motion.div>
+      
+      <motion.div 
+        animate={{ x: [0, 15, 0], y: [0, 10, 0] }} 
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute top-1/3 -right-12 z-20 w-16 h-16 bg-purple-500/10 backdrop-blur-md rounded-xl border border-purple-500/20 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.3)]"
+        style={{ transform: "translateZ(60px)" }}
+      >
+        <Zap className="w-8 h-8 text-purple-400" />
+      </motion.div>
+
+      {/* Main 3D Card Container (Mouse Tracking) */}
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className="relative w-full h-full cursor-pointer perspective-[1200px]"
+      >
+        {/* CARD 1 (Cool Image) */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative aspect-square bg-white/5 rounded-3xl overflow-hidden flex items-center justify-center p-12 border border-white/10"
+          animate={card1State}
+          transition={springTransition}
+          style={{ transformStyle: "preserve-3d" }}
+          className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 bg-white/5 p-4 shadow-2xl origin-bottom-right"
         >
-          {/* Abstract Glowing Graphic */}
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent blur-3xl opacity-30" />
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 border-[1px] border-white/10 rounded-full"
+          <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 via-transparent to-blue-500/10 blur-xl rounded-2xl" />
+          <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner">
+            <Image 
+              src="/ashraf-cool.jpg" 
+              alt="Achraf Cool" 
+              fill 
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
-            <motion.div 
-              animate={{ rotate: -360 }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-8 border-[1px] border-white/20 rounded-xl"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Cpu className="w-24 h-24 text-white opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-6 right-6 text-right">
+              <p className="text-white font-black text-3xl mb-1 drop-shadow-lg italic">"Stay Cool."</p>
             </div>
           </div>
         </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+
+        {/* CARD 0 (Professional Image) */}
+        <motion.div 
+          animate={card0State}
+          transition={springTransition}
+          style={{ transformStyle: "preserve-3d" }}
+          className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 bg-white/5 p-4 shadow-2xl origin-bottom-left"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">{t.about.title}</h2>
-          <p className="text-xl text-slate-400 mb-6 leading-relaxed">
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-purple-500/10 blur-xl rounded-2xl" />
+          <motion.div 
+            className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner group"
+          >
+            <Image 
+              src="/ashraf.jpg" 
+              alt="Achraf Front" 
+              fill 
+              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+            {/* Badge overlay on image */}
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-black/50 backdrop-blur-md text-xs font-bold uppercase tracking-wider mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                Creative Developer
+              </div>
+              <p className="text-white font-bold text-3xl mb-1 drop-shadow-lg">Achraf</p>
+              <p className="text-white/80 text-sm font-medium flex items-center gap-2">
+                <span className="w-4 h-[1px] bg-white/50" /> Morocco • Global
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+
+      </motion.div>
+    </div>
+  );
+};
+
+
+const About = () => {
+  const { t } = useLanguage();
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
+  };
+
+  return (
+    <section id="about" className="relative z-10 py-32 px-6 md:px-12 max-w-7xl mx-auto overflow-visible">
+      {/* Background Decorative Grid */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 0.03, scale: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.1 }}
+        className="absolute inset-0 pointer-events-none -z-10" 
+        style={{ backgroundImage: 'linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)', backgroundSize: '4rem 4rem', maskImage: 'radial-gradient(circle at center, black, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle at center, black, transparent 70%)' }}
+      />
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        {/* Left: 3D Picture */}
+        <motion.div
+           initial={{ opacity: 0, scale: 0.9 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true, amount: 0.3 }}
+           transition={{ duration: 0.8, ease: "easeOut" }}
+           className="flex justify-center w-full relative"
+        >
+          <AboutStackedCards />
+        </motion.div>
+        
+        {/* Right: Text */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="order-first lg:order-last relative"
+        >
+          {/* Animated Glow Behind Text */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 bg-gradient-to-br from-purple-500/10 via-blue-500/5 to-transparent blur-[80px] rounded-full pointer-events-none"
+          />
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium mb-6 text-blue-300">
+            <Cpu className="w-4 h-4" /> About Me
+          </motion.div>
+          
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight tracking-tight">
+            {t.about.title}
+          </motion.h2>
+          
+          <motion.p variants={itemVariants} className="text-xl text-slate-300 mb-6 leading-relaxed font-light">
             {t.about.p1}
-          </p>
-          <p className="text-xl text-slate-400 mb-8 leading-relaxed">
+          </motion.p>
+          
+          <motion.p variants={itemVariants} className="text-lg text-slate-400 mb-10 leading-relaxed">
             {t.about.p2}
-          </p>
-          <div className="flex items-center gap-4 text-white font-bold italic">
-            <div className="w-12 h-[1px] bg-white/30" />
-            {t.about.signature}
-          </div>
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="grid grid-cols-2 gap-6 mb-10">
+             <motion.div 
+               whileHover={{ y: -5, scale: 1.02, backgroundColor: "rgba(255,255,255,0.05)" }}
+               className="p-6 rounded-3xl border border-white/10 bg-white/[0.02] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] transition-colors relative overflow-hidden group cursor-default"
+             >
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="text-5xl font-black text-white mb-2 tracking-tighter relative z-10">100</div>
+                <div className="text-sm text-slate-400 font-medium relative z-10">Google Performance</div>
+             </motion.div>
+             <motion.div 
+               whileHover={{ y: -5, scale: 1.02, backgroundColor: "rgba(255,255,255,0.05)" }}
+               className="p-6 rounded-3xl border border-white/10 bg-white/[0.02] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] transition-colors relative overflow-hidden group cursor-default"
+             >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="text-5xl font-black text-white mb-2 tracking-tighter flex items-end gap-1 relative z-10">
+                  React <Code className="w-6 h-6 text-blue-400 mb-1.5 opacity-50" />
+                </div>
+                <div className="text-sm text-slate-400 font-medium relative z-10">+ Tailwind Stack</div>
+             </motion.div>
+          </motion.div>
+          
+          <motion.div variants={itemVariants} className="flex items-center gap-6 text-white font-bold italic text-lg">
+            <div className="w-16 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500" />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+              {t.about.signature}
+            </span>
+          </motion.div>
         </motion.div>
       </div>
     </section>
@@ -439,6 +647,11 @@ const Work = () => {
       key: "terra",
       title: "Terra Mia",
       img: "/projects/terra.png"
+    },
+    {
+      key: "lumina",
+      title: "Lumina Estates",
+      img: "/projects/lumina.png"
     }
   ];
 

@@ -3,6 +3,7 @@ export const translations = {
     nav: {
       services: "Services",
       work: "Work",
+      about: "About",
       contact: "Contact",
     },
     hero: {
@@ -22,10 +23,10 @@ export const translations = {
       }
     },
     about: {
-      title: "Digital Strategy for Morocco & Beyond",
-      p1: "Based in Morocco, I help businesses and creators globally build digital storefronts that work perfectly, look incredible, and turn visitors into clients.",
-      p2: "I specialize in high-performance front-end architecture, delivering premium Moroccan web design solutions that are fast, secure, and globally optimized. My process is built on clarity, speed, and uncompromising quality.",
-      signature: "Ashraf Web",
+      title: "I Build Websites That Don't Waste Time.",
+      p1: "I'm Achraf, a frontend specialist focused on one thing: turning your digital presence into a high-converting asset. Based out of Morocco and working globally, I strip away the complexity of traditional web design.",
+      p2: "Using a modern React and Tailwind stack, I deliver sleek, different styles landing pages that score perfect 100s on Google's performance metrics. No confusing jargon, no dragged-out timelines—just clean code, seamless communication, and a website that actually works for your business.",
+      signature: "Achraf",
     },
     services: {
       title: "Focused Solutions",
@@ -108,6 +109,7 @@ export const translations = {
     nav: {
       services: "Services",
       work: "Projets",
+      about: "À propos",
       contact: "Contact",
     },
     hero: {
@@ -127,10 +129,10 @@ export const translations = {
       }
     },
     about: {
-      title: "Stratégie Digitale au Maroc et Ailleurs",
-      p1: "Basé au Maroc, j'aide les entreprises et créateurs du monde entier à construire des vitrines digitales qui fonctionnent parfaitement, sont esthétiques et convertissent les visiteurs en clients.",
-      p2: "Je me spécialise dans l'architecture front-end haute performance, offrant des solutions de design web premium au Maroc, rapides, sécurisées et optimisées mondialement. Mon processus repose sur la clarté, la rapidité et une qualité sans compromis.",
-      signature: "Ashraf Web",
+      title: "Je crée des sites web qui ne font pas perdre de temps.",
+      p1: "Je suis Achraf, un spécialiste frontend concentré sur une seule chose : transformer votre présence numérique en un atout à fort taux de conversion. Basé au Maroc et travaillant à l'international, j'élimine la complexité du web design traditionnel.",
+      p2: "En utilisant une stack moderne avec React et Tailwind, je livre des landing pages élégantes aux styles variés qui obtiennent un score parfait de 100 sur les métriques de performance de Google. Pas de jargon confus, pas de délais interminables—juste un code propre, une communication fluide, et un site web qui fonctionne vraiment pour votre entreprise.",
+      signature: "Achraf",
     },
     services: {
       title: "Solutions Ciblées",
