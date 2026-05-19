@@ -100,6 +100,42 @@ export const translations = {
         desc: "A property listing interface with a focus on usability, streamlining the search and discovery experience for potential buyers.",
       },
     },
+    reviews: {
+      title: "People I've worked with",
+      subtitle: "Their words mean more than any portfolio piece.",
+      items: [
+        {
+          quote: "Delivered ahead of schedule with exceptional code quality. He raised the standard of our entire team.",
+          name: "Michael Rodriguez",
+          title: "Product Manager",
+        },
+        {
+          quote: "Helped us rebuild our frontend in record time. His architectural decisions continue to benefit us months later.",
+          name: "Emily Watson",
+          title: "Engineering Lead",
+        },
+        {
+          quote: "One of the most talented engineers I've worked with. His attention to detail and ability to turn complex ideas into clean solutions is outstanding.",
+          name: "Sarah Chen",
+          title: "CTO, Tech Innovators",
+        },
+        {
+          quote: "Achraf has a gift for translating design vision into pixel-perfect, performant interfaces. A true craftsman.",
+          name: "Aisha Okonkwo",
+          title: "Head of Design, Finova",
+        },
+        {
+          quote: "His communication and delivery pace are both incredible. We shipped a full redesign in under 3 weeks.",
+          name: "James Lawson",
+          title: "Founder, Launchpad NG",
+        },
+        {
+          quote: "Technically brilliant and a great team player. He elevates everyone around him — a rare combination.",
+          name: "David Kim",
+          title: "CEO, Innovation Hub",
+        }
+      ]
+    },
     footer: {
       rights: "All rights reserved.",
       built: "Built with Next.js, Tailwind & Framer Motion.",
@@ -205,6 +241,42 @@ export const translations = {
         category: "Immobilier",
         desc: "Une interface d'annonces immobilières axée sur la convivialité, simplifiant la recherche pour les acheteurs potentiels.",
       },
+    },
+    reviews: {
+      title: "Ils m'ont fait confiance",
+      subtitle: "Leurs mots ont plus de valeur que n'importe quel portfolio.",
+      items: [
+        {
+          quote: "Livré en avance avec une qualité de code exceptionnelle. Il a élevé le niveau de toute notre équipe.",
+          name: "Michael Rodriguez",
+          title: "Chef de Produit",
+        },
+        {
+          quote: "Il nous a aidés à reconstruire notre frontend en un temps record. Ses décisions architecturales continuent de nous bénéficier des mois plus tard.",
+          name: "Emily Watson",
+          title: "Responsable Ingénierie",
+        },
+        {
+          quote: "L'un des ingénieurs les plus talentueux avec lesquels j'ai travaillé. Son souci du détail et sa capacité à transformer des idées complexes en solutions épurées sont exceptionnels.",
+          name: "Sarah Chen",
+          title: "CTO, Tech Innovators",
+        },
+        {
+          quote: "Achraf a un don pour traduire une vision de design en interfaces parfaites au pixel près et performantes. Un vrai artisan.",
+          name: "Aisha Okonkwo",
+          title: "Directrice Design, Finova",
+        },
+        {
+          quote: "Sa communication et son rythme de livraison sont incroyables. Nous avons expédié une refonte complète en moins de 3 semaines.",
+          name: "James Lawson",
+          title: "Fondateur, Launchpad NG",
+        },
+        {
+          quote: "Techniquement brillant et doté d'un grand esprit d'équipe. Il élève tout le monde autour de lui — une combinaison rare.",
+          name: "David Kim",
+          title: "PDG, Innovation Hub",
+        }
+      ]
     },
     footer: {
       rights: "Tous droits réservés.",
