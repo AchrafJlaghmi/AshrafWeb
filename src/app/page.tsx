@@ -338,20 +338,9 @@ const Hero = () => {
 };
 
 
-const AboutStackedCards = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+const AboutCard = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isHovered) {
-        setActiveIndex((prev) => (prev === 0 ? 1 : 0));
-      }
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [isHovered]);
 
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
@@ -373,17 +362,6 @@ const AboutStackedCards = () => {
     x.set(0);
     y.set(0);
   };
-
-  const frontAnimate = { rotateZ: 0, x: 0, y: 0, scale: 1, zIndex: 20, z: 30 };
-  const frontHover = { rotateZ: -6, x: -60, y: 0, scale: 1.05, zIndex: 20, z: 50 };
-
-  const backAnimate = { rotateZ: 4, x: 15, y: 5, scale: 0.95, zIndex: 10, z: -20 };
-  const backHover = { rotateZ: 14, x: 140, y: -20, scale: 0.95, zIndex: 10, z: -30 };
-
-  const card0State = activeIndex === 0 ? (isHovered ? frontHover : frontAnimate) : (isHovered ? backHover : backAnimate);
-  const card1State = activeIndex === 1 ? (isHovered ? frontHover : frontAnimate) : (isHovered ? backHover : backAnimate);
-
-  const springTransition = { type: "spring" as const, stiffness: 200, damping: 25 };
 
   return (
     <div className="relative w-full max-w-sm perspective-[1200px] flex items-center justify-center" style={{ aspectRatio: "4/5" }}>
@@ -419,8 +397,6 @@ const AboutStackedCards = () => {
       <motion.div
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        onHoverStart={() => setIsHovered(true)}
-        onHoverEnd={() => setIsHovered(false)}
         style={{
           rotateX,
           rotateY,
@@ -428,35 +404,9 @@ const AboutStackedCards = () => {
         }}
         className="relative w-full h-full cursor-pointer perspective-[1200px]"
       >
-        {/* CARD 1 (Cool Image) */}
         <motion.div 
-          animate={card1State}
-          transition={springTransition}
           style={{ transformStyle: "preserve-3d" }}
-          className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 bg-white/5 p-4 shadow-2xl origin-bottom-right"
-        >
-          <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 via-transparent to-blue-500/10 blur-xl rounded-2xl" />
-          <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner">
-            <Image 
-              src="/ashraf-cool.jpg" 
-              alt="Achraf Cool" 
-              fill 
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 right-6 text-right">
-              <p className="text-white font-black text-3xl mb-1 drop-shadow-lg italic">"Stay Cool."</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* CARD 0 (Professional Image) */}
-        <motion.div 
-          animate={card0State}
-          transition={springTransition}
-          style={{ transformStyle: "preserve-3d" }}
-          className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 bg-white/5 p-4 shadow-2xl origin-bottom-left"
+          className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 bg-white/5 p-4 shadow-2xl"
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-purple-500/10 blur-xl rounded-2xl" />
           <motion.div 
@@ -464,13 +414,12 @@ const AboutStackedCards = () => {
           >
             <Image 
               src="/ashraf.jpg" 
-              alt="Achraf Front" 
+              alt="Achraf" 
               fill 
-              className="object-cover transition-all duration-700"
+              className="object-cover transition-all duration-700 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
-            {/* Badge overlay on image */}
             <div className="absolute bottom-6 left-6 right-6">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-black/50 backdrop-blur-md text-xs font-bold uppercase tracking-wider mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
@@ -483,7 +432,6 @@ const AboutStackedCards = () => {
             </div>
           </motion.div>
         </motion.div>
-
       </motion.div>
     </div>
   );
@@ -530,7 +478,7 @@ const About = () => {
            transition={{ duration: 0.8, ease: "easeOut" }}
            className="flex justify-center w-full relative"
         >
-          <AboutStackedCards />
+          <AboutCard />
         </motion.div>
         
         {/* Right: Text */}
