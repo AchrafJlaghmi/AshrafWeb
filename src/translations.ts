@@ -64,6 +64,16 @@ export const translations = {
       ctaButton: "Start Your Project",
     },
     projects: {
+      peakroofing: {
+        type: "Construction",
+        category: "Landing Page",
+        desc: "A high-converting landing page for a Texas-based roofing contractor, built to capture local leads with a bold visual identity and a prominent quote request system.",
+      },
+      apexbuilders: {
+        type: "Construction",
+        category: "Corporate Website",
+        desc: "A professional corporate website for a Florida-based construction and remodeling company, designed to build trust with high-value homeowners and drive consultation requests.",
+      },
       barber: {
         type: "Barbershop",
         category: "Personal Brand",
@@ -100,42 +110,7 @@ export const translations = {
         desc: "A property listing interface with a focus on usability, streamlining the search and discovery experience for potential buyers.",
       },
     },
-    reviews: {
-      title: "Client Success Stories",
-      subtitle: "Hear from the businesses and individuals I've helped elevate online.",
-      items: [
-        {
-          quote: "Achraf completely transformed our online presence. The website he built is not only stunning but incredibly fast. Our conversion rates have doubled!",
-          name: "Youssef Alaoui",
-          title: "Founder, Atlas Tech",
-        },
-        {
-          quote: "I needed a high-performance landing page delivered quickly, and Achraf exceeded all expectations. The design is premium and the process was flawless.",
-          name: "Sarah Jenkins",
-          title: "Marketing Director",
-        },
-        {
-          quote: "Working with Achraf was a breeze. He understood our vision perfectly and built a pixel-perfect site that stands out from the competition.",
-          name: "Amine Benali",
-          title: "CEO, Medina Realty",
-        },
-        {
-          quote: "His attention to detail and modern design skills are unmatched. He delivered a portfolio site that looks high-end and loads instantly.",
-          name: "Lucas Hoffmann",
-          title: "Creative Director",
-        },
-        {
-          quote: "If you want a website that actually brings in clients without the usual headaches, Achraf is your guy. Fast, reliable, and incredibly talented.",
-          name: "Kenza Tazi",
-          title: "Owner, Noor Cafe",
-        },
-        {
-          quote: "We hired Achraf for a complete frontend redesign. The result was a sleek, user-friendly interface that our customers absolutely love.",
-          name: "Omar Chraibi",
-          title: "E-commerce Manager",
-        }
-      ]
-    },
+
     footer: {
       rights: "All rights reserved.",
       built: "Built with Next.js, Tailwind & Framer Motion.",
@@ -206,6 +181,16 @@ export const translations = {
       ctaButton: "Lancer Votre Projet",
     },
     projects: {
+      peakroofing: {
+        type: "Construction",
+        category: "Landing Page",
+        desc: "Une page de destination à fort taux de conversion pour un entrepreneur en toiture basé au Texas, conçue pour capturer des prospects locaux avec une identité visuelle audacieuse et un système de demande de devis bien en vue.",
+      },
+      apexbuilders: {
+        type: "Construction",
+        category: "Corporate Website",
+        desc: "Un site Web d'entreprise professionnel pour une entreprise de construction et de rénovation basée en Floride, conçu pour instaurer la confiance avec les propriétaires de grande valeur et générer des demandes de consultation.",
+      },
       barber: {
         type: "Barbershop",
         category: "Marque Personnelle",
@@ -242,42 +227,7 @@ export const translations = {
         desc: "Une interface d'annonces immobilières axée sur la convivialité, simplifiant la recherche pour les acheteurs potentiels.",
       },
     },
-    reviews: {
-      title: "Avis de Mes Clients",
-      subtitle: "Ce qu'ils disent de ma façon de travailler et de livrer.",
-      items: [
-        {
-          quote: "Achraf a complètement transformé notre présence en ligne. Le site qu'il a créé est non seulement magnifique, mais incroyablement rapide. Nos taux de conversion ont doublé !",
-          name: "Youssef Alaoui",
-          title: "Fondateur, Atlas Tech",
-        },
-        {
-          quote: "J'avais besoin d'une landing page performante livrée rapidement, et Achraf a dépassé toutes mes attentes. Le design est premium et le processus sans faille.",
-          name: "Sarah Jenkins",
-          title: "Directrice Marketing",
-        },
-        {
-          quote: "Travailler avec Achraf a été un jeu d'enfant. Il a parfaitement compris notre vision et a construit un site au pixel près qui se démarque de la concurrence.",
-          name: "Amine Benali",
-          title: "PDG, Medina Realty",
-        },
-        {
-          quote: "Son souci du détail et ses compétences en design moderne sont inégalés. Il a livré un site portfolio haut de gamme qui se charge instantanément.",
-          name: "Lucas Hoffmann",
-          title: "Directeur Créatif",
-        },
-        {
-          quote: "Si vous voulez un site web qui attire vraiment des clients sans les maux de tête habituels, Achraf est la personne qu'il vous faut. Rapide, fiable et incroyablement talentueux.",
-          name: "Kenza Tazi",
-          title: "Propriétaire, Noor Cafe",
-        },
-        {
-          quote: "Nous avons engagé Achraf pour une refonte complète de notre site. Le résultat est une interface élégante et intuitive que nos clients adorent.",
-          name: "Omar Chraibi",
-          title: "Responsable E-commerce",
-        }
-      ]
-    },
+
     footer: {
       rights: "Tous droits réservés.",
       built: "Construit avec Next.js, Tailwind & Framer Motion.",

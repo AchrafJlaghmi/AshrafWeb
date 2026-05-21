@@ -10,6 +10,18 @@ import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 const allProjects = [
   {
+    key: "peakroofing",
+    title: "Peak Roofing Co.",
+    img: "/projects/peakroofing.png",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+  },
+  {
+    key: "apexbuilders",
+    title: "Apex Builders Group",
+    img: "/projects/apexbuilders.png",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+  },
+  {
     key: "barber",
     title: "Barber Chehban",
     img: "/projects/barber.png",
@@ -53,7 +65,7 @@ const allProjects = [
   },
 ];
 
-const categories = ["All", "Landing Page", "Corporate Website", "Restaurant Website", "Brand Website", "Cafe Shop", "Real Estate App"];
+const categories = ["All", "Construction", "Landing Page", "Corporate Website", "Restaurant Website", "Brand Website", "Cafe Shop", "Real Estate App"];
 
 export default function WorkPage() {
   const { lang, t } = useLanguage();

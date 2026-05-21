@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ashrafweb.tech/sitemap.xml
+Sitemap: https://ashrafweb.me/sitemap.xml
