@@ -13,17 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ashraf Web | High-Speed Web Design & Development in Morocco",
-  description: "Premium, high-performance landing pages and portfolios for businesses and creators globally and in Morocco. Zero complications, fast delivery.",
-  keywords: ["web design morocco", "landing pages morocco", "freelance developer morocco", "high speed websites", "premium portfolio", "ashraf web"],
-  authors: [{ name: "Ashraf" }],
+  title: "Freelance React & Next.js Web Developer | USA & Morocco",
+  description: "Hire a top-tier freelance frontend developer building lightning-fast, premium React and Next.js websites for clients globally, in the US, and Morocco.",
+  keywords: ["freelance web developer", "React developer", "Next.js expert", "hire web designer USA", "web design Morocco", "high speed landing pages", "frontend developer morocco", "Next.js developer USA", "freelance web designer", "Ashraf web"],
+  authors: [{ name: "Achraf" }],
   metadataBase: new URL("https://ashrafweb.me"),
   alternates: {
-    canonical: "/",
   },
   openGraph: {
-    title: "Ashraf Web | Premium Web Design",
-    description: "Build your high-speed digital storefront. Professional landing pages delivered fast.",
+    title: "Freelance React & Next.js Web Developer | Ashraf Web",
+    description: "Build your high-speed digital storefront. Premium landing pages delivered fast for US, Global, and Moroccan clients.",
     url: "https://ashrafweb.me",
     siteName: "Ashraf Web",
     locale: "en_US",
@@ -39,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ashraf Web | High-Speed Web Design",
-    description: "Premium landing pages and portfolios for creators and businesses.",
+    title: "Freelance Next.js Developer | Ashraf Web",
+    description: "Premium landing pages and portfolios for creators and businesses globally.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -52,6 +51,33 @@ export const metadata: Metadata = {
 import { LanguageProvider } from "../context/LanguageContext";
 import { WhatsAppFAB } from "@/components/WhatsAppFAB";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Ashraf Web",
+  "founder": {
+    "@type": "Person",
+    "name": "Achraf"
+  },
+  "description": "High-performance freelance Next.js and React web development, creating premium landing pages and digital portfolios.",
+  "url": "https://ashrafweb.me",
+  "priceRange": "$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "MA"
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "United States" },
+    { "@type": "Country", "name": "Morocco" },
+    { "@type": "Place", "name": "Worldwide" }
+  ],
+  "knowsLanguage": ["en", "fr"],
+  "sameAs": [
+    "https://wa.me/212630625216",
+    "mailto:ashrafjlaghmi@gmail.com"
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -60,9 +86,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased overflow-x-hidden max-w-[100vw]`}
     >
-      <body className="min-h-full flex flex-col">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col overflow-x-hidden max-w-[100vw]">
         <LanguageProvider>
           {children}
           <WhatsAppFAB />

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
 import { 
   Zap, 
@@ -14,7 +15,8 @@ import {
   Cpu, 
   Rocket,
   Languages,
-  ChevronDown
+  ChevronDown,
+  ArrowRight
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -79,19 +81,20 @@ const Navbar = () => {
           <a href="#services" className="hover:text-white transition-colors">{t.nav.services}</a>
           <a href="#work" className="hover:text-white transition-colors">{t.nav.work}</a>
           <LanguageSwitcher />
-          <motion.a 
-            href="/contact"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 255, 255, 0.4)" }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-white text-black px-6 py-2 rounded-full font-bold"
-          >
-            {t.nav.contact}
-          </motion.a>
+          <Link href="/contact" passHref legacyBehavior>
+            <motion.a 
+              whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 255, 255, 0.4)" }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-black px-6 py-2 rounded-full font-bold"
+            >
+              {t.nav.contact}
+            </motion.a>
+          </Link>
         </div>
         
         <div className="md:hidden flex items-center gap-4">
           <LanguageSwitcher />
-          <a href="/contact" className="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold">{t.nav.contact}</a>
+          <Link href="/contact" className="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold">{t.nav.contact}</Link>
         </div>
       </div>
     </nav>
@@ -131,7 +134,7 @@ const Hero3D = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[440px] flex items-center justify-center cursor-grab"
+      className="relative w-full h-[440px] flex items-center justify-center cursor-grab scale-[0.8] sm:scale-100 origin-center"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
@@ -290,14 +293,15 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,255,255,0.35)" }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-black px-8 py-4 rounded-full font-black text-base flex items-center justify-center gap-2"
-            >
-              {t.hero.cta}
-            </motion.a>
+            <Link href="/contact" passHref legacyBehavior>
+              <motion.a
+                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,255,255,0.35)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-black px-8 py-4 rounded-full font-black text-base flex items-center justify-center gap-2"
+              >
+                {t.hero.cta}
+              </motion.a>
+            </Link>
             <motion.a
               href="#work"
               whileHover={{ backgroundColor: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.3)" }}
@@ -364,7 +368,7 @@ const AboutCard = () => {
   };
 
   return (
-    <div className="relative w-full max-w-sm perspective-[1200px] flex items-center justify-center" style={{ aspectRatio: "4/5" }}>
+    <div className="relative w-full max-w-sm perspective-[1200px] flex items-center justify-center scale-[0.85] sm:scale-100 origin-center" style={{ aspectRatio: "4/5" }}>
       {/* Floating Elements */}
       <motion.div 
         animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }} 
@@ -582,34 +586,19 @@ const Work = () => {
   const { t } = useLanguage();
   const projects = [
     {
-      key: "peakroofing",
-      title: "Peak Roofing Co.",
-      img: "/projects/peakroofing.png"
-    },
-    {
-      key: "apexbuilders",
-      title: "Apex Builders Group",
-      img: "/projects/apexbuilders.png"
-    },
-    {
-      key: "barber",
+      key: "barberchehban",
       title: "Barber Chehban",
-      img: "/projects/barber.png"
+      img: "/projects/barberchehban/barberchehban.png"
     },
     {
-      key: "cafe",
-      title: "Noir Cafe",
-      img: "/projects/cafe.png"
+      key: "standardpool",
+      title: "Standard Pool",
+      img: "/projects/standardpool/standardpool1.png"
     },
     {
-      key: "terra",
-      title: "Terra Mia",
-      img: "/projects/terra.png"
-    },
-    {
-      key: "lumina",
-      title: "Lumina Estates",
-      img: "/projects/lumina.png"
+      key: "port",
+      title: "Portfolio",
+      img: "/projects/port/port.png"
     }
   ];
 
@@ -620,9 +609,9 @@ const Work = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.work.title}</h2>
           <p className="text-slate-400">{t.work.subtitle}</p>
         </div>
-        <a href="/work" className="flex items-center gap-2 text-sm font-bold border-b border-white pb-1 hover:text-slate-300 transition-colors">
-          {t.work.viewAll} <ExternalLink className="w-4 h-4" />
-        </a>
+        <Link href="/work" className="flex items-center gap-2 text-sm font-bold bg-white/5 border border-white/10 px-6 py-3 rounded-full hover:bg-white/10 hover:border-white/20 transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+          {t.work.viewAll} <ArrowRight className="w-4 h-4" />
+        </Link>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -630,27 +619,35 @@ const Work = () => {
           // @ts-ignore
           const pT = t.projects[project.key];
           return (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.6 }}
-              className="group cursor-pointer"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-white/5 bg-white/5 mb-6">
-                <Image 
-                  src={project.img} 
-                  alt={`${project.title} - Premium ${pT.type} Web Design Morocco`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-              <p className="text-slate-500 text-sm font-medium uppercase tracking-widest">{pT.type}</p>
-            </motion.div>
+            <Link href={`/work/${project.key}`} key={idx}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.6 }}
+                className="group cursor-pointer"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-white/5 bg-white/5 mb-6">
+                  <Image 
+                    src={project.img} 
+                    alt={`${project.title} - Premium ${pT.type} Web Design Morocco`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500" />
+                  
+                  {/* Glassmorphic hover button */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
+                    <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-2.5 rounded-full font-bold text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+                      View Gallery <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                <p className="text-slate-500 text-sm font-medium uppercase tracking-widest">{pT.type}</p>
+              </motion.div>
+            </Link>
           );
         })}
       </div>
@@ -676,14 +673,15 @@ const Contact = () => {
         </p>
         
         <div className="flex flex-col gap-8 items-center">
-          <motion.a
-            href="/contact"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,255,255,0.3)" }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-white text-black px-10 py-4 rounded-full font-black text-lg mb-8"
-          >
-            {t.allProjects.ctaButton}
-          </motion.a>
+          <Link href="/contact" passHref legacyBehavior>
+            <motion.a
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,255,255,0.3)" }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-black px-10 py-4 rounded-full font-black text-lg mb-8"
+            >
+              {t.allProjects.ctaButton}
+            </motion.a>
+          </Link>
           <motion.a 
             href="mailto:ashrafjlaghmi@gmail.com"
             whileHover={{ scale: 1.05 }}

@@ -64,50 +64,20 @@ export const translations = {
       ctaButton: "Start Your Project",
     },
     projects: {
-      peakroofing: {
-        type: "Construction",
-        category: "Landing Page",
-        desc: "A high-converting landing page for a Texas-based roofing contractor, built to capture local leads with a bold visual identity and a prominent quote request system.",
-      },
-      apexbuilders: {
-        type: "Construction",
-        category: "Corporate Website",
-        desc: "A professional corporate website for a Florida-based construction and remodeling company, designed to build trust with high-value homeowners and drive consultation requests.",
-      },
-      barber: {
+      barberchehban: {
         type: "Barbershop",
         category: "Personal Brand",
         desc: "A digital storefront for an upscale barbershop, featuring an integrated booking system and a clean, elegant visual identity.",
       },
-      lumina: {
+      standardpool: {
         type: "Corporate Website",
-        category: "Real Estate",
-        desc: "A refined corporate site for a real estate agency, designed with a focus on clear typography and structured property presentations.",
+        category: "Services",
+        desc: "A premium corporate website for a professional pool maintenance and construction company, highlighting their services and portfolio.",
       },
-      terra: {
-        type: "Restaurant Website",
-        category: "Hospitality",
-        desc: "A modern restaurant website combining seamless reservation functionality with a sophisticated dark-mode layout.",
-      },
-      atlas: {
-        type: "Landing Page",
-        category: "Restaurant",
-        desc: "A vibrant landing page for a grill restaurant, built with a structured menu presentation and prominent call-to-action sections.",
-      },
-      apex: {
-        type: "Brand Website",
-        category: "Fitness",
-        desc: "A comprehensive brand platform for a fitness studio, including membership tiers, philosophy overviews, and subscription management.",
-      },
-      cafe: {
-        type: "Cafe Shop",
-        category: "Hospitality",
-        desc: "An engaging online presence for a local cafe, integrating a digital menu and an intuitive table reservation system.",
-      },
-      nestly: {
-        type: "Real Estate App",
-        category: "Real Estate",
-        desc: "A property listing interface with a focus on usability, streamlining the search and discovery experience for potential buyers.",
+      port: {
+        type: "Portfolio",
+        category: "Personal Brand",
+        desc: "A creative and interactive portfolio showcasing projects, skills, and professional experience with sleek animations.",
       },
     },
 
@@ -181,50 +151,20 @@ export const translations = {
       ctaButton: "Lancer Votre Projet",
     },
     projects: {
-      peakroofing: {
-        type: "Construction",
-        category: "Landing Page",
-        desc: "Une page de destination à fort taux de conversion pour un entrepreneur en toiture basé au Texas, conçue pour capturer des prospects locaux avec une identité visuelle audacieuse et un système de demande de devis bien en vue.",
-      },
-      apexbuilders: {
-        type: "Construction",
-        category: "Corporate Website",
-        desc: "Un site Web d'entreprise professionnel pour une entreprise de construction et de rénovation basée en Floride, conçu pour instaurer la confiance avec les propriétaires de grande valeur et générer des demandes de consultation.",
-      },
-      barber: {
+      barberchehban: {
         type: "Barbershop",
         category: "Marque Personnelle",
         desc: "Une vitrine digitale pour un salon de coiffure haut de gamme, intégrant un système de réservation fluide et une identité visuelle élégante.",
       },
-      lumina: {
+      standardpool: {
         type: "Site Corporatif",
-        category: "Immobilier",
-        desc: "Un site institutionnel épuré pour une agence immobilière, conçu avec un accent sur la typographie et la présentation claire des biens.",
+        category: "Services",
+        desc: "Un site web corporatif premium pour une entreprise professionnelle d'entretien et de construction de piscines, mettant en valeur leurs services et leur portfolio.",
       },
-      terra: {
-        type: "Site Restaurant",
-        category: "Hôtellerie",
-        desc: "Un site web moderne pour restaurant associant fonctionnalité de réservation et mise en page soignée en mode sombre.",
-      },
-      atlas: {
-        type: "Landing Page",
-        category: "Restaurant",
-        desc: "Une page de destination dynamique pour un restaurant grill, avec une présentation structurée du menu et des appels à l'action clairs.",
-      },
-      apex: {
-        type: "Site de Marque",
-        category: "Fitness",
-        desc: "Une plateforme de marque complète pour un studio de fitness, incluant des niveaux d'abonnement et la gestion des membres.",
-      },
-      cafe: {
-        type: "Café",
-        category: "Hôtellerie",
-        desc: "Une présence en ligne attrayante pour un café, avec menu numérique et système intuitif de réservation de table.",
-      },
-      nestly: {
-        type: "App Immobilier",
-        category: "Immobilier",
-        desc: "Une interface d'annonces immobilières axée sur la convivialité, simplifiant la recherche pour les acheteurs potentiels.",
+      port: {
+        type: "Portfolio",
+        category: "Marque Personnelle",
+        desc: "Un portfolio créatif et interactif présentant des projets, des compétences et une expérience professionnelle avec des animations élégantes.",
       },
     },
 

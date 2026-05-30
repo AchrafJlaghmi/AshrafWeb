@@ -4,63 +4,28 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Mail, Phone, Languages, ChevronDown } from "lucide-react";
+import { Metadata } from "next";
+import { ArrowLeft, ArrowRight, ExternalLink, Mail, Phone, Languages, ChevronDown } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 const allProjects = [
   {
-    key: "peakroofing",
-    title: "Peak Roofing Co.",
-    img: "/projects/peakroofing.png",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    key: "apexbuilders",
-    title: "Apex Builders Group",
-    img: "/projects/apexbuilders.png",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    key: "barber",
+    key: "barberchehban",
     title: "Barber Chehban",
-    img: "/projects/barber.png",
+    img: "/projects/barberchehban/barberchehban.png",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
   {
-    key: "lumina",
-    title: "Lumina Estates",
-    img: "/projects/lumina.png",
+    key: "standardpool",
+    title: "Standard Pool",
+    img: "/projects/standardpool/standardpool1.png",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
   {
-    key: "terra",
-    title: "Terra Mia",
-    img: "/projects/terra.png",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    key: "atlas",
-    title: "Atlas Fire",
-    img: "/projects/atlas.png",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    key: "apex",
-    title: "Apex Athletics",
-    img: "/projects/apex.png",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    key: "cafe",
-    title: "Noir Cafe",
-    img: "/projects/cafe.png",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    key: "nestly",
-    title: "Nestly",
-    img: "/projects/nestly.png",
+    key: "port",
+    title: "Portfolio",
+    img: "/projects/port/port.png",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
 ];
@@ -95,23 +60,24 @@ export default function WorkPage() {
             <Link href="/#services" className="hover:text-white transition-colors">{t.nav.services}</Link>
             <Link href="/" className="hover:text-white transition-colors">{t.nav.work}</Link>
             <LanguageSwitcher />
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255,255,255,0.4)" }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-black px-6 py-2 rounded-full font-bold"
-            >
-              {t.nav.contact}
-            </motion.a>
+            <Link href="/contact" passHref legacyBehavior>
+              <motion.a
+                whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255,255,255,0.4)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-black px-6 py-2 rounded-full font-bold"
+              >
+                {t.nav.contact}
+              </motion.a>
+            </Link>
           </div>
           <div className="md:hidden flex items-center gap-4">
             <LanguageSwitcher />
-            <motion.a
+            <Link
               href="/contact"
               className="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold"
             >
               {t.nav.contact}
-            </motion.a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -125,7 +91,7 @@ export default function WorkPage() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-slate-500 hover:text-white text-sm font-medium mb-10 transition-colors group"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 text-white text-sm font-bold mb-10 transition-all shadow-[0_0_15px_rgba(255,255,255,0.02)] group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             {t.allProjects.back}
@@ -177,14 +143,14 @@ export default function WorkPage() {
             // @ts-ignore
             const pT = t.projects[project.key];
             return (
-              <motion.article
-                key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.6 }}
-                className="group flex flex-col rounded-3xl border border-white/8 bg-white/[0.01] overflow-hidden hover:border-white/20 transition-all"
-              >
+              <Link href={`/work/${project.key}`} key={project.title}>
+                <motion.article
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.6 }}
+                  className="group flex flex-col h-full rounded-3xl border border-white/8 bg-white/[0.01] overflow-hidden hover:border-white/20 transition-all cursor-pointer"
+                >
                 {/* Thumbnail */}
                 <div className="relative aspect-[16/10] overflow-hidden bg-white/5">
                   <Image
@@ -194,7 +160,15 @@ export default function WorkPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-75 group-hover:opacity-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent group-hover:bg-black/20 transition-all duration-500" />
+                  
+                  {/* Glassmorphic hover button */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
+                    <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-2.5 rounded-full font-bold text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+                      View Gallery <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+
                   {/* Category badge */}
                   <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest">
                     {pT.category}
@@ -227,7 +201,8 @@ export default function WorkPage() {
                     ))}
                   </div>
                 </div>
-              </motion.article>
+                </motion.article>
+              </Link>
             );
           })}
         </motion.div>
@@ -250,14 +225,15 @@ export default function WorkPage() {
             {t.allProjects.ctaSubtitle}
           </p>
           <div className="flex flex-col gap-8 items-center">
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,255,255,0.3)" }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-black px-10 py-4 rounded-full font-black text-lg mb-8"
-            >
-              {t.allProjects.ctaButton}
-            </motion.a>
+            <Link href="/contact" passHref legacyBehavior>
+              <motion.a
+                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,255,255,0.3)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-black px-10 py-4 rounded-full font-black text-lg mb-8"
+              >
+                {t.allProjects.ctaButton}
+              </motion.a>
+            </Link>
             <motion.a
               href="mailto:ashrafjlaghmi@gmail.com"
               whileHover={{ scale: 1.05 }}

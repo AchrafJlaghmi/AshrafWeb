@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Metadata } from "next";
 import { ArrowLeft, Send } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
