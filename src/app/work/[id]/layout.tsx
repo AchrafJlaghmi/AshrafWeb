@@ -13,6 +13,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title,
     description: `View the ${projectTitles[id] || "latest"} premium web design and development project created by Ashraf Web using Next.js and Tailwind CSS.`,
+    alternates: {
+      canonical: `https://ashrafweb.me/work/${id}`,
+    },
   };
 }
 

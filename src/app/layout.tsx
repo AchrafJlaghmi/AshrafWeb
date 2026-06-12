@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Achraf" }],
   metadataBase: new URL("https://ashrafweb.me"),
   alternates: {
+    canonical: "https://ashrafweb.me",
   },
   openGraph: {
     title: "Freelance React & Next.js Web Developer | Ashraf Web",
