@@ -4,6 +4,7 @@ const projectTitles: Record<string, string> = {
   barberchehban: "Barber Chehban",
   standardpool: "Standard Pool",
   port: "Portfolio",
+  autorental: "Auto Rental",
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {

@@ -79,6 +79,11 @@ export const translations = {
         category: "Personal Brand",
         desc: "A creative and interactive portfolio showcasing projects, skills, and professional experience with sleek animations.",
       },
+      autorental: {
+        type: "Car Rental",
+        category: "Services",
+        desc: "A sleek and modern web application for an auto rental agency in Marrakech, designed to streamline vehicle booking with a premium user experience.",
+      },
     },
 
     footer: {
@@ -165,6 +170,11 @@ export const translations = {
         type: "Portfolio",
         category: "Marque Personnelle",
         desc: "Un portfolio créatif et interactif présentant des projets, des compétences et une expérience professionnelle avec des animations élégantes.",
+      },
+      autorental: {
+        type: "Location de Voitures",
+        category: "Services",
+        desc: "Une application web moderne et épurée pour une agence de location de voitures à Marrakech, conçue pour simplifier la réservation de véhicules avec une expérience utilisateur premium.",
       },
     },
 

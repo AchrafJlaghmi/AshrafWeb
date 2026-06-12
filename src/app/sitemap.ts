@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1 : 0.8,
   }));
 
-  const dynamicRoutes = ["barberchehban", "standardpool", "port"].map((id) => ({
+  const dynamicRoutes = ["barberchehban", "standardpool", "port", "autorental"].map((id) => ({
     url: `${baseUrl}/work/${id}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,

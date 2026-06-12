@@ -596,6 +596,11 @@ const Work = () => {
       img: "/projects/standardpool/standardpool1.png"
     },
     {
+      key: "autorental",
+      title: "Auto Rental",
+      img: "/projects/autorental/autorental.png"
+    },
+    {
       key: "port",
       title: "Portfolio",
       img: "/projects/port/port.png"

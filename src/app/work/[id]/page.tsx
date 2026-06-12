@@ -35,12 +35,23 @@ const projectGalleries: Record<string, string[]> = {
     "/projects/port/port4.png",
     "/projects/port/port5.png",
   ],
+  autorental: [
+    "/projects/autorental/autorental.png",
+    "/projects/autorental/autorental2.png",
+    "/projects/autorental/autorental3.png",
+    "/projects/autorental/autorental4.png",
+    "/projects/autorental/autorental5.png",
+    "/projects/autorental/autorental6.png",
+    "/projects/autorental/autorental7.png",
+    "/projects/autorental/autorental8.png",
+  ],
 };
 
 const projectTitles: Record<string, string> = {
   barberchehban: "Barber Chehban",
   standardpool: "Standard Pool",
   port: "Portfolio",
+  autorental: "Auto Rental",
 };
 
 export default function ProjectPage({ params }: { params: Promise<{ id: string }> }) {

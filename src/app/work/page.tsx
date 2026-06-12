@@ -28,6 +28,12 @@ const allProjects = [
     img: "/projects/port/port.png",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
+  {
+    key: "autorental",
+    title: "Auto Rental",
+    img: "/projects/autorental/autorental.png",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+  },
 ];
 
 const categories = ["All", "Construction", "Landing Page", "Corporate Website", "Restaurant Website", "Brand Website", "Cafe Shop", "Real Estate App"];
